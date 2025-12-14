@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-do List - 회원가입</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="signup.js" defer></script>
+</head>
+<body>
+
+  <!-- 회원가입 컨테이너 -->
+  <div class="signup-container">
+    <!-- 회원가입 폼 -->
+    <main class="signup-wrapper">
+      <div class="signup-box">
+        <!-- 헤더 -->
+        <header class="signup-header">
+          <h1 class="signup-title">환영합니다!</h1>
+          <p class="signup-subtitle">To-do List, 지금 바로 시작해보세요.</p>
+        </header>
+
+        <form class="signup-form" id="signupForm">
+          
+          <!-- 아이디 (이메일) -->
+          <div class="form-group">
+            <label for="signupId">ID (이메일)</label>
+            <div class="email-input-wrapper">
+              <input 
+                type="text" 
+                id="emailPrefix" 
+                class="input-field email-prefix"
+                placeholder="이메일 아이디"
+                required
+              />
+              <span class="email-at">@</span>
+              <select id="emailDomain" class="input-field email-domain-select">
+                <option value="">선택하세요</option>
+                <option value="naver.com">naver.com</option>
+                <option value="gmail.com">gmail.com</option>
+                <option value="hanmail.net">hanmail.net</option>
+                <option value="daum.net">daum.net</option>
+                <option value="kakao.com">kakao.com</option>
+                <option value="custom">직접 입력</option>
+              </select>
+              <input 
+                type="text" 
+                id="emailDomainCustom" 
+                class="input-field email-domain-custom"
+                placeholder="직접 입력"
+                style="display: none;"
+              />
+              <!-- 실제 이메일 값을 저장할 hidden input -->
+              <input 
+                type="email" 
+                id="signupId" 
+                style="display: none;"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- 비밀번호 -->
+          <div class="form-group">
+            <label for="signupPw">비밀번호</label>
+            <div class="pw-input-wrapper">
+              <input 
+                type="password" 
+                id="signupPw" 
+                class="input-field"
+                placeholder="비밀번호를 입력하세요"
+                required
+              />
+              <button type="button" class="pw-toggle-btn" aria-label="비밀번호 보기">
+                👁️
+              </button>
+            </div>
+            <span class="input-hint">* 10자 이상이면서 영문, 숫자, 특수문자를 모두 포함하세요</span>
+          </div>
+
+          <!-- 비밀번호 확인 -->
+          <div class="form-group">
+            <label for="signupPwConfirm">비밀번호 확인</label>
+            <div class="pw-input-wrapper">
+              <input 
+                type="password" 
+                id="signupPwConfirm" 
+                class="input-field"
+                placeholder="비밀번호 확인"
+                required
+              />
+              <button type="button" class="pw-toggle-btn" aria-label="비밀번호 보기">
+                👁️
+              </button>
+            </div>
+            <span class="input-hint">* 비밀번호를 다시 입력해주세요</span>
+          </div>
+
+          <!-- 닉네임 -->
+          <div class="form-group">
+            <label for="signupNickname">닉네임</label>
+            <input 
+              type="text" 
+              id="signupNickname" 
+              class="input-field"
+              placeholder="닉네임을 입력하세요"
+              required
+            />
+          </div>
+
+          <!-- 약관 동의 -->
+          <div class="terms-section">
+            <div class="terms-group">
+              <label class="checkbox-label main-checkbox">
+                <input type="checkbox" id="agreeAll" class="checkbox-input">
+                <span class="checkbox-custom"></span>
+                <span class="checkbox-text">모두 동의합니다</span>
+              </label>
+            </div>
+
+            <div class="terms-list">
+              <label class="checkbox-label">
+                <input type="checkbox" id="agreeAge" class="checkbox-input term-checkbox" required>
+                <span class="checkbox-custom"></span>
+                <span class="checkbox-text">[필수] 만 14세 이상입니다</span>
+              </label>
+
+              <label class="checkbox-label">
+                <input type="checkbox" id="agreeTerms" class="checkbox-input term-checkbox" required>
+                <span class="checkbox-custom"></span>
+                <span class="checkbox-text">[필수] 이용약관에 동의합니다</span>
+              </label>
+
+              <label class="checkbox-label">
+                <input type="checkbox" id="agreePrivacy" class="checkbox-input term-checkbox" required>
+                <span class="checkbox-custom"></span>
+                <span class="checkbox-text">[필수] 개인정보 수집 및 이용에 동의합니다</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- 회원가입 버튼 -->
+          <div class="form-actions-signup">
+            <button type="submit" class="signup-btn">
+              가입하기
+            </button>
+          </div>
+
+          <!-- 소셜 로그인 구분선 -->
+          <div class="social-divider">
+            <span class="divider-line"></span>
+            <span class="divider-text">or</span>
+            <span class="divider-line"></span>
+          </div>
+
+          <!-- 소셜 로그인 버튼들 -->
+          <div class="social-login-section">
+            <button type="button" class="social-btn google-btn">
+              <span class="social-icon">G</span>
+              <span class="social-text">구글 계정으로 가입하기</span>
+            </button>
+
+            <button type="button" class="social-btn naver-btn">
+              <span class="social-icon naver-icon">N</span>
+              <span class="social-text">네이버 계정으로 가입하기</span>
+            </button>
+          </div>
+
+          <!-- 로그인 링크 -->
+          <div class="signup-footer">
+            <p class="footer-text">이미 계정이 있으신가요?</p>
+            <a href="index.html" class="login-link">로그인하기</a>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>
+

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-do List - ID/PW 찾기</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="find-account.js" defer></script>
+</head>
+<body>
+
+  <!-- ID/PW 찾기 컨테이너 -->
+  <div class="signup-container">
+    <!-- 찾기 폼 -->
+    <main class="signup-wrapper">
+      <div class="signup-box">
+        <!-- 헤더 -->
+        <header class="signup-header">
+          <h1 class="signup-title">ID/PW 찾기</h1>
+          <p class="signup-subtitle">이메일을 입력하시면 ID와 비밀번호를 찾을 수 있습니다.</p>
+        </header>
+
+        <!-- 탭 메뉴 -->
+        <div class="find-tabs">
+          <button type="button" class="find-tab active" data-tab="find-id">ID 찾기</button>
+          <button type="button" class="find-tab" data-tab="find-pw">PW 찾기</button>
+        </div>
+
+        <!-- ID 찾기 폼 -->
+        <form class="find-form" id="findIdForm" style="display: block;">
+          <div class="form-group">
+            <label for="findIdEmail">이메일</label>
+            <input 
+              type="email" 
+              id="findIdEmail" 
+              class="input-field"
+              placeholder="가입 시 사용한 이메일을 입력하세요"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="findIdNickname">닉네임</label>
+            <input 
+              type="text" 
+              id="findIdNickname" 
+              class="input-field"
+              placeholder="가입 시 사용한 닉네임을 입력하세요"
+              required
+            />
+          </div>
+
+          <div class="form-actions-signup">
+            <button type="submit" class="signup-btn">
+              ID 찾기
+            </button>
+          </div>
+
+          <!-- 결과 표시 영역 -->
+          <div id="findIdResult" class="find-result" style="display: none;">
+            <div class="result-message">
+              <p class="result-text"></p>
+            </div>
+          </div>
+        </form>
+
+        <!-- PW 찾기 폼 -->
+        <form class="find-form" id="findPwForm" style="display: none;">
+          <div class="form-group">
+            <label for="findPwId">ID</label>
+            <input 
+              type="text" 
+              id="findPwId" 
+              class="input-field"
+              placeholder="아이디를 입력하세요"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="findPwEmail">이메일</label>
+            <input 
+              type="email" 
+              id="findPwEmail" 
+              class="input-field"
+              placeholder="가입 시 사용한 이메일을 입력하세요"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="findPwNickname">닉네임</label>
+            <input 
+              type="text" 
+              id="findPwNickname" 
+              class="input-field"
+              placeholder="가입 시 사용한 닉네임을 입력하세요"
+              required
+            />
+          </div>
+
+          <div class="form-actions-signup">
+            <button type="submit" class="signup-btn">
+              비밀번호 찾기
+            </button>
+          </div>
+
+          <!-- 결과 표시 영역 -->
+          <div id="findPwResult" class="find-result" style="display: none;">
+            <div class="result-message">
+              <p class="result-text"></p>
+            </div>
+          </div>
+        </form>
+
+        <!-- 로그인 링크 -->
+        <div class="signup-footer">
+          <p class="footer-text">계정을 찾으셨나요?</p>
+          <a href="index.html" class="login-link">로그인하기</a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>
+
