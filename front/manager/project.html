@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Asset Management Dashboard</title>
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body>
+  <div class="dashboard">
+    <!-- 헤더 -->
+    <header>
+      <div class="header-left">
+        <div class="menu-icon" id="menuToggle">
+          <div class="menu-bars">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div>
+          <div class="title">Asset Management Dashboard</div>
+          <div class="subtitle">사용자 정보 및 이용 현황</div>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <span class="subtitle">관리자 계정</span>
+        <div class="profile-icon"></div>
+      </div>
+    </header>
+
+    <!-- 사이드바 오버레이 -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- 옵션 -->
+    <aside class="sidebar hidden" id="sidebar">
+      <div class="logo-dot"></div>
+      <div class="nav-icon active"></div>
+      <div class="nav-icon"></div>
+      <div class="nav-icon"></div>
+      <div class="nav-icon"></div>
+    </aside>
+    <!-- 메인 -->
+    <main class="main">
+      <!-- 메인 정보 -->
+      <section class="stats">
+        <article class="stat-card">
+          <div class="stat-label">전체 이용자 수</div>
+          <div class="stat-value" id="totalUsers">000명</div>
+          <div class="stat-desc">등록된 모든 계정 수</div>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-label">승인된 회원</div>
+          <div class="stat-value" id="approvedUsers">000명</div>
+          <div class="stat-desc">정상 이용 중인 계정</div>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-label">비회원 / 미승인</div>
+          <div class="stat-value" id="unapprovedUsers">000명</div>
+          <div class="stat-desc">승인 대기 또는 제한</div>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-label">오늘 이용률</div>
+          <div class="stat-value" id="usageRate">0%</div>
+          <div class="stat-desc">금일 접속 기준</div>
+        </article>
+      </section>
+
+      <!-- BOTTOM AREA -->
+      <section class="bottom">
+        <!-- LEFT : GRAPH -->
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">월별 이용 실적</div>
+            <div class="card-caption">최근 7일 기준 더미 데이터</div>
+          </div>
+          <div class="chart">
+            <div class="chart-bar"></div>
+            <div class="chart-bar"></div>
+            <div class="chart-bar"></div>
+            <div class="chart-bar"></div>
+            <div class="chart-bar"></div>
+            <div class="chart-bar"></div>
+            <div class="chart-bar"></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div class="card-title">회원 정보 관리</div>
+            <div class="card-caption">PC 주소 / 사용자 이름 / 승인 / 시간</div>
+          </div>
+          <table>
+            <!-- 회원 정보 -->
+            <thead>
+              <tr>
+                <th>PC 주소</th>
+                <th>사용자 이름</th>
+                <th>승인 상태</th>
+                <th>마지막 접속 시간</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="project.js"></script>
+</body>
+</html>

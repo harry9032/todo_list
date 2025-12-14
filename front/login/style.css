@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: #a3afe4;          /* 밝은 배경 */
+  color: #222;
+  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 로고와 로그인을 감싸는 컨테이너 박스 */
+.container-box {
+  width: 420px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 로고 영역 */
+.logo-header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo-text {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #0b0b0b;
+}
+
+/* 로그인 박스 중앙 정렬 */
+.login-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.login-box {
+  width: 100%;
+  padding: 0;
+}
+
+/* 라벨 + 인풋 */
+.form-group + .form-group {
+  margin-top: 28px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 18px;
+  color: #101010;
+}
+
+/* 일반 인풋 */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+  border: none;
+  border-bottom: 2px solid #d0d3d8;
+  background: transparent;
+  color: #222;
+  transition: border-color .2s ease, background-color .2s ease;
+}
+
+input::placeholder {
+  color: #0c0c0c;
+}
+
+input:focus {
+  border-bottom-color: #333;
+  background-color: #ffffff;
+  outline: none;
+}
+
+/* PW + 아이콘 래퍼 */
+.pw-wrapper {
+  position: relative;
+}
+
+/* PW 인풋은 오른쪽 여백 조금 더 */
+.pw-wrapper input {
+  padding-right: 40px;
+}
+
+/* 비밀번호 보기 아이콘 버튼 */
+.pw-toggle {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  opacity: 0.6;
+  transition: opacity .2s ease, transform .1s ease;
+}
+
+.pw-toggle:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* 하단 링크 */
+.form-footer {
+  margin-top: 18px;
+  text-align: right;
+}
+
+.link {
+  text-decoration: none;
+  color: #070707;
+  font-size: 13px;
+}
+
+.link:hover {
+  color: #333;
+}
+
+.divider {
+  margin: 0 6px;
+  color: #f6f4f4;
+}
+
+/* 반응형 */
+@media (max-width: 480px) {
+  .login-box {
+    width: 90%;
+  }
+
+  .logo-header {
+    padding: 20px 24px;
+  }
+}

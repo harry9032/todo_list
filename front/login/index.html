@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>To-do List - Login</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- 로고와 로그인 영역을 감싸는 컨테이너 -->
+  <div class="container-box">
+    <!-- 상단 좌측 로고 -->
+    <header class="logo-header">
+      <span class="logo-text">To-do List</span>
+    </header>
+
+    <!-- 로그인 영역 -->
+    <main class="login-wrapper">
+      <div class="login-box">
+        <form class="login-form">
+          <div class="form-group">
+            <label for="userId">ID</label>
+            <input type="text" id="userId" placeholder="아이디를 입력하세요">
+          </div>
+
+          <div class="form-group">
+            <label for="userPw">PW</label>
+
+            <!-- PW + 아이콘 -->
+            <div class="pw-wrapper">
+              <input type="password" id="userPw" placeholder="비밀번호를 입력하세요">
+              <button type="button" class="pw-toggle" aria-label="비밀번호 보기">
+                👁
+              </button>
+            </div>
+          </div>
+
+          <div class="form-footer">
+            <a href="#" class="link">회원가입</a>
+            <span class="divider">|</span>
+            <a href="#" class="link">ID / PW 찾기</a>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>

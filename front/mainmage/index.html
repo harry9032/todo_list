@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-do List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- 헤더 -->
+    <header class="header">
+      <h1 class="logo">To-do List</h1>
+      <div class="header-actions">
+        <button class="btn-condition" id="conditionBtn">컨디션 입력</button>
+        <button class="btn-fixed-time" id="fixedTimeBtn">고정 시간 추가</button>
+        <button class="btn-add-todo" id="addTodoBtn">할 일 추가</button>
+      </div>
+    </header>
+
+    <!-- 메인 컨텐츠 -->
+    <main class="main-content">
+      <!-- 왼쪽: 할 일 목록 -->
+      <section class="todo-section">
+        <div class="section-header">
+          <h2>오늘의 목표</h2>
+          <button class="btn-priority" id="priorityBtn">우선순위 설정</button>
+        </div>
+        
+        <div class="todo-list" id="todoList">
+          <!-- 할 일 아이템들이 여기에 동적으로 추가됩니다 -->
+        </div>
+      </section>
+
+      <!-- 오른쪽: 일정표 -->
+      <section class="schedule-section">
+        <div class="section-header">
+          <h2>일정표</h2>
+          <div class="available-time">
+            <span>사용 가능 시간: </span>
+            <span id="availableTime">0시간</span>
+          </div>
+        </div>
+        
+        <div class="schedule-container" id="scheduleContainer">
+          <!-- 일정표가 여기에 동적으로 생성됩니다 -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- 컨디션 입력 팝업 -->
+  <div class="popup" id="conditionPopup">
+    <div class="popup-content">
+      <div class="popup-header">
+        <h3>컨디션 입력</h3>
+        <button class="popup-close" id="closeConditionPopup">&times;</button>
+      </div>
+      <div class="popup-body">
+        <div class="condition-selector">
+          <label>오늘의 컨디션을 선택하세요</label>
+          <div class="condition-options">
+            <button class="condition-btn" data-value="0.5" data-label="나쁨">나쁨</button>
+            <button class="condition-btn" data-value="0.7" data-label="조금 나쁨">조금 나쁨</button>
+            <button class="condition-btn active" data-value="1.0" data-label="보통">보통</button>
+            <button class="condition-btn" data-value="1.2" data-label="조금 좋음">조금 좋음</button>
+            <button class="condition-btn" data-value="1.5" data-label="좋음">좋음</button>
+          </div>
+        </div>
+        <div class="popup-footer">
+          <button class="btn-primary" id="saveCondition">저장</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 고정 시간 추가 팝업 -->
+  <div class="popup" id="fixedTimePopup">
+    <div class="popup-content">
+      <div class="popup-header">
+        <h3>고정 시간 추가</h3>
+        <button class="popup-close" id="closeFixedTimePopup">&times;</button>
+      </div>
+      <div class="popup-body">
+        <div class="fixed-time-list" id="fixedTimeList">
+          <!-- 고정 시간 목록이 여기에 표시됩니다 -->
+        </div>
+        <div class="form-group">
+          <label>시작 시간</label>
+          <input type="time" id="fixedStartTime" class="time-input" />
+        </div>
+        <div class="form-group">
+          <label>종료 시간</label>
+          <input type="time" id="fixedEndTime" class="time-input" />
+          <small style="color: #666; font-size: 12px; display: block; margin-top: 4px;">
+            수면 등 하루를 넘어가는 경우: 종료 시간이 시작 시간보다 작아도 됩니다 (예: 22:00 ~ 06:00)
+          </small>
+        </div>
+        <div class="form-group">
+          <label>내용</label>
+          <input type="text" id="fixedTimeTitle" class="text-input" placeholder="예: 회의, 수업, 수면 등" />
+        </div>
+        <div class="popup-footer">
+          <button class="btn-secondary" id="cancelFixedTime">취소</button>
+          <button class="btn-primary" id="saveFixedTime">추가</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 할 일 추가/수정 팝업 -->
+  <div class="popup" id="todoPopup">
+    <div class="popup-content">
+      <div class="popup-header">
+        <h3 id="todoPopupTitle">할 일 추가</h3>
+        <button class="popup-close" id="closeTodoPopup">&times;</button>
+      </div>
+      <div class="popup-body">
+        <div class="form-group">
+          <label>할 일</label>
+          <input type="text" id="todoTitle" class="text-input" placeholder="할 일을 입력하세요" />
+        </div>
+        <div class="form-group">
+          <label>카테고리</label>
+          <select id="todoCategory" class="select-input">
+            <option value="">카테고리 선택</option>
+            <option value="work">업무</option>
+            <option value="study">공부</option>
+            <option value="exercise">운동</option>
+            <option value="personal">개인</option>
+            <option value="other">기타</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>예상 소요 시간 (분)</label>
+          <input type="number" id="todoDuration" class="number-input" min="1" placeholder="예: 30" />
+        </div>
+        <div class="popup-footer">
+          <button class="btn-secondary" id="cancelTodo">취소</button>
+          <button class="btn-primary" id="saveTodo">저장</button>
+          <button class="btn-danger" id="deleteTodo" style="display: none;">삭제</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 오버레이 -->
+  <div class="overlay" id="overlay"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
