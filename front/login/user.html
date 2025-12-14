@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>To-do List - 내 회원정보</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="user.js" defer></script>
+</head>
+<body>
+
+  <!-- 로고와 회원정보 영역을 감싸는 컨테이너 -->
+  <div class="container-box">
+    <!-- 상단 로고 -->
+    <header class="logo-header">
+      <span class="logo-text">To-do List</span>
+    </header>
+
+    <!-- 회원정보 영역 -->
+    <main class="user-info-wrapper">
+      <div class="user-info-box">
+        <h2 class="section-title">내 회원정보</h2>
+        
+        <form class="user-info-form">
+          <!-- 아이디 -->
+          <div class="form-group">
+            <label for="userId">ID</label>
+            <input type="text" id="userId" value="user123" readonly>
+          </div>
+
+          <!-- 비밀번호 -->
+          <div class="form-group">
+            <label for="userPw">PW</label>
+            <div class="pw-wrapper">
+              <input type="text" id="userPw" value="********" readonly>
+              <button type="button" class="pw-toggle" aria-label="비밀번호 수정" onclick="editPassword()">
+                ✏️
+              </button>
+            </div>
+          </div>
+
+          <!-- 닉네임 -->
+          <div class="form-group">
+            <label for="userNickname">닉네임</label>
+            <div class="nickname-wrapper">
+              <input type="text" id="userNickname" value="사용자닉네임">
+              <button type="button" class="edit-btn" onclick="saveNickname()">변경</button>
+            </div>
+          </div>
+
+          <!-- 이메일 -->
+          <div class="form-group">
+            <label for="userEmail">이메일</label>
+            <input type="email" id="userEmail" value="user@example.com">
+          </div>
+
+          <!-- 전화번호 -->
+          <div class="form-group">
+            <label for="userPhone">전화번호</label>
+            <input type="tel" id="userPhone" value="010-1234-5678">
+          </div>
+
+          <!-- 정보 저장 버튼 -->
+          <div class="form-actions">
+            <button type="button" class="save-btn" onclick="saveUserInfo()">정보 저장</button>
+          </div>
+        </form>
+
+        <!-- 구분선 -->
+        <div class="divider-line"></div>
+
+        <!-- 고정시간 관리 -->
+        <div class="time-management-section">
+          <h3 class="section-subtitle">고정시간 관리</h3>
+          
+          <div class="form-group">
+            <label for="sleepTime">수면시간</label>
+            <div class="time-input-group">
+              <input type="time" id="sleepStart" value="23:00">
+              <span class="time-separator">~</span>
+              <input type="time" id="sleepEnd" value="07:00">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="workTime">근무시간</label>
+            <div class="time-input-group">
+              <input type="time" id="workStart" value="09:00">
+              <span class="time-separator">~</span>
+              <input type="time" id="workEnd" value="18:00">
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="save-btn" onclick="saveTimeSettings()">시간 저장</button>
+          </div>
+        </div>
+
+        <!-- 구분선 -->
+        <div class="divider-line"></div>
+
+        <!-- 계정 삭제 -->
+        <div class="account-delete-section">
+          <button type="button" class="delete-btn" onclick="deleteAccount()">계정 삭제</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>
+
